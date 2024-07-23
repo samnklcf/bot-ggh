@@ -1,7 +1,7 @@
       // Fonction pour créer le bouton
       function createCustomButton() {
         var button = document.createElement("div");
-        button.innerHTML = `<img src="/images/chatbot.gif" alt="JPG" width="80px" style="border-radius: 100%; z-index:200000;">`;
+        button.innerHTML = `<img src="https://bot-ggh.onrender.com/images/chatbot.gif" alt="JPG" width="80px" style="border-radius: 100%; z-index:200000;">`;
         button.style.position = "fixed";
         button.style.bottom = "70px";
         button.style.right = "30px";
@@ -83,7 +83,7 @@
 
           // Ajoutez un iframe à l'intérieur du rectangle
           var iframe = document.createElement("iframe");
-          iframe.src = "https://oli-bot.onrender.com/";
+          iframe.src = "https://bot-ggh.onrender.com/";
           iframe.style.width = "100%";
           iframe.style.height = "100%";
           iframe.style.border = "none";
