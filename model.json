@@ -1,0 +1,211 @@
+{
+  "settings": {
+    "languages": [
+      "fr"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "fr"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "fr": {
+        "settings": {
+          "locale": "fr",
+          "trainByDomain": false,
+          "tag": "domain-manager-fr",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "%name%,appel,je,m": {
+            "intent": "user.intro",
+            "domain": "default"
+          },
+          "%name%,est,mon,nom": {
+            "intent": "user.intro",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "user.intro": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "Je m'appelle %name%",
+            "intent": "user.intro"
+          },
+          {
+            "domain": "default",
+            "utterance": "Mon nom est %name%",
+            "intent": "user.intro"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "fr",
+              "tag": "nlu-fr",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "je": 1,
+              "m": 1,
+              "appel": 1,
+              "%name%": 1,
+              "mon": 1,
+              "nom": 1,
+              "est": 1
+            },
+            "intents": {
+              "user.intro": 1
+            },
+            "intentFeatures": {
+              "user.intro": {
+                "je": 1,
+                "m": 1,
+                "appel": 1,
+                "%name%": 1,
+                "mon": 1,
+                "nom": 1,
+                "est": 1
+              }
+            },
+            "featuresToIntent": {
+              "je": [
+                "user.intro"
+              ],
+              "m": [
+                "user.intro"
+              ],
+              "appel": [
+                "user.intro"
+              ],
+              "%name%": [
+                "user.intro"
+              ],
+              "mon": [
+                "user.intro"
+              ],
+              "nom": [
+                "user.intro"
+              ],
+              "est": [
+                "user.intro"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "fr",
+                "tag": "nlu-fr",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "je",
+                "m",
+                "appel",
+                "%name%",
+                "mon",
+                "nom",
+                "est"
+              ],
+              "intents": [
+                "user.intro"
+              ],
+              "perceptrons": [
+                [
+                  2.3851990699768066,
+                  2.3851990699768066,
+                  2.3851990699768066,
+                  4.7579803466796875,
+                  2.385033130645752,
+                  2.385033130645752,
+                  2.385033130645752,
+                  2.375601885945834
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "fr",
+        "Je m'appelle %name%"
+      ],
+      [
+        "fr",
+        "Mon nom est %name%"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "fr": {
+        "user.intro": [
+          {
+            "answer": "Enchanté de vous rencontrer, {{name}}! Comment puis-je vous aider aujourd'hui?"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {
+    "user.intro": {
+      "name": {
+        "intent": "user.intro",
+        "entity": "name",
+        "mandatory": false,
+        "locales": {}
+      }
+    }
+  }
+}
